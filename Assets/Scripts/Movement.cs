@@ -13,7 +13,7 @@ public class Movement : MonoBehaviour
     public int CMD;
     public GameObject ball;
 
-    public SerialPort sp = new SerialPort("COM7", 9600);
+    public SerialPort sp = new SerialPort("COM4", 5000000);
     // Start is called before the first frame update
     void Start()
     {
@@ -64,30 +64,30 @@ public class Movement : MonoBehaviour
 
     private void Move()
     {
-        if (Input.GetKey("d") || CMD == 6)
+        if (Input.GetKey("d") || CMD == 120)
         {
             rb.AddForce(sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
 
-        if (Input.GetKey("a") || CMD == 4)
+        if (Input.GetKey("a") || CMD == 96)
         {
             rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
 
-        if (Input.GetKey("w") || CMD == 8)
+        if (Input.GetKey("w") || CMD == 128)
         {
             rb.AddForce(0, 0, forwardForce * Time.deltaTime, ForceMode.VelocityChange);
         }
 
-        if (Input.GetKey("s") || CMD == 2)
+        if (Input.GetKey("s") || CMD == 24)
         {
             rb.AddForce(0, 0, -forwardForce * Time.deltaTime, ForceMode.VelocityChange);
         }
-        if (Input.GetKey("space") || CMD == 7)
+        if (Input.GetKey("space") || CMD == 126)
         {
             ball.GetComponent<BallLaunch>().Fire();
         }
         ball.GetComponent<BallLaunch>().startPosition = gameObject.transform.position + new Vector3(0, 0, 2);
-
+        print(CMD);
     }
 }
