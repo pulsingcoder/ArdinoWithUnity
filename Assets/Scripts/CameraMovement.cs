@@ -19,11 +19,11 @@ public class CameraMovement : MonoBehaviour
         if (Input.GetKey("up"))
         {
 
-            verticalKey = 1;
+            verticalKey = -1;
         }
         else if (Input.GetKey("down"))
         {
-            verticalKey = -1;
+            verticalKey = 1;
         }
         else if (Input.GetKey("right"))
         {
